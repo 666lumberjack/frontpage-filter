@@ -2,13 +2,14 @@
 
 const getConfiguration = function() {
     chrome.storage.local.get({'noDuplicates': false, 'displayMode': 'all'}, (result) => {
-        console.log(result)
+
     if (result) {
         if (result.noDuplicates) {
         document.getElementsByName('nodupes')[0].checked = true;
         } else {
         document.getElementsByName('nodupes')[0].checked = false;            
         }
+        
         switch(result.displayMode) {
             default: 
                 document.getElementsByName('display mode')[0].checked = true;
@@ -27,8 +28,6 @@ const getConfiguration = function() {
 getConfiguration();
 
 const setConfiguration = function() {
-
-    chrome.storage.local.remove(["noDuplicated","displayMode"]);
 
     chrome.storage.local.set({
         noDuplicates: document.getElementsByName("nodupes")[0].checked,
