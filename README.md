@@ -1,6 +1,6 @@
 # frontpage-filter
 
-A chrome extension to filter by post type (link/self) and remove duplicates on Reddit. Currently can detect and remove duplicate links and filter only link posts or text posts. Functionality to recognise the same images hosted in different places and hide all but the first is currently work-in-progress. 
+A chrome extension to filter by post type (link/self) and remove duplicates on Reddit. Currently can detect and remove duplicate links and filter only link posts or text posts. Functionality to recognise the same image hosted in different places and hide all but the first instance is currently work-in-progress. 
 
 # Limitations
 
