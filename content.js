@@ -24,11 +24,15 @@ const isPicture = (link) => {
     let result = fetch(httpsURL, {
         method: 'HEAD'
     }).then(res => {
-        let contentPrefix = res.headers.get('content-type').split('').slice(0,5).join('');
-        if (contentPrefix === "image") {
-            return true;
+        if (res.headers.get('content-type')) {
+            let contentPrefix = res.headers.get('content-type').split('').slice(0,5).join('');
+            if (contentPrefix === "image") {
+                return true;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return false;   
         }
     });
 
