@@ -35,6 +35,7 @@ const isPicture = (link) => {
     return result;
 }
 
+//below function needs to be moved to a background script to avoid CORS restrictions on content scripts
 const imageToBase64 = (src) => {
     
     return new Promise((resolve, reject) => {
@@ -95,9 +96,8 @@ for (let i = 0; i < submissions.length; i++){
             submissions[i].style.display = 'none';
         } else {
             links.add(contentURL);
-            console.log(`Adding ${contentURL} to links set`)
 
-            if (/*linkIsImage*/ false) {
+            if (/*linkIsImage*/ false) { //image matching is disabled until encoding can be handled by a background script
 
                 let encodedImage = await imageToBase64(contentURL);
 
@@ -121,5 +121,3 @@ chrome.storage.local.get({'noDuplicates': false, 'displayMode': 'all'}, (result)
 
     filterPage();
 });
-
-console.log(settings);
