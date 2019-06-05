@@ -11,6 +11,9 @@
             "js": ["content.js"]
         }
     ],
+    "background_scripts":[
+        "background.js"
+    ],
     "permissions": [
         "https://*/",
         "storage"
