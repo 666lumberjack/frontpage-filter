@@ -63,7 +63,7 @@ for (let i = 0; i < submissions.length; i++){
     } else if (settings.noDuplicates) {
 
         let contentURL = submissions[i].dataset.url;
-        let linkIsImage = await isPicture(contentURL);
+        //let linkIsImage = await isPicture(contentURL);
 
         if (links.has(contentURL)) {
             submissions[i].style.display = 'none';
@@ -72,7 +72,7 @@ for (let i = 0; i < submissions.length; i++){
 
             if (/*linkIsImage*/ false) { //image matching is disabled until encoding can be handled by a background script
 
-                let encodedImage = await imageToBase64(contentURL);
+                //let encodedImage = await imageToBase64(contentURL);
 
                 if (images.has(encodedImage)) {
                     submissions[i].style.display = 'none';

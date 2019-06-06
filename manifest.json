@@ -11,9 +11,10 @@
             "js": ["content.js"]
         }
     ],
-    "background_scripts":[
-        "background.js"
-    ],
+    "background":{
+    "scripts": ["background.js"],
+    "persistent": false
+    },
     "permissions": [
         "https://*/",
         "storage"
