@@ -63,8 +63,10 @@ for (let i = 0; i < submissions.length; i++){
     } else if (settings.noDuplicates) {
 
         let contentURL = submissions[i].dataset.url;
-        //let linkIsImage = await isPicture(contentURL);
+        let linkIsImage = await isPicture(contentURL);
 
+        console.log(`Link: ${contentURL}\n Image Status: ${linkIsImage}`)
+        
         if (links.has(contentURL)) {
             submissions[i].style.display = 'none';
         } else {
