@@ -46,7 +46,10 @@ const filterPage = async () => {
     
 let submissions = document.querySelectorAll("div.sitetable div.thing.link");
 
-if (submissions[0]) {
+let notDuplicatesPage = !(window.location.pathname.split('/')[3] == 'duplicates')
+console.log(window.location.pathname.split('/')[3])
+
+if (submissions[0] && notDuplicatesPage) {
 
 let links = new Set();
 let images = new Set();
