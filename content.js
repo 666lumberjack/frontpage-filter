@@ -34,27 +34,28 @@ const isPicture = (link) => {
         } else {
             return false;   
         }
-    });
+    }
+    ).catch(err => {
+            console.log(err)
+            return false;
+        });
 
     return result;
 }
 
-
-
-//we wrap the main logic in an async function so that we can await the resolution of each isPicture promise
-const filterPage = async () => {
-    
 let submissions = document.querySelectorAll("div.sitetable div.thing.link");
 
+//we wrap the main logic in an async function so that we can await the resolution of each isPicture promise
+const filterPage = async (startIndex = 0) => {
+
 let notDuplicatesPage = !(window.location.pathname.split('/')[3] == 'duplicates')
-console.log(window.location.pathname.split('/')[3])
 
 if (submissions[0] && notDuplicatesPage) {
 
 let links = new Set();
 let images = new Set();
 
-for (let i = 0; i < submissions.length; i++){
+for (let i = startIndex; i < submissions.length; i++){
 
 
     if (!isLink(submissions[i])){
@@ -99,3 +100,27 @@ chrome.storage.local.get({'noDuplicates': false, 'displayMode': 'all'}, (result)
 
     filterPage();
 });
+
+
+//temporary dom mod listener 
+
+let mainContentTable = document.querySelector("div.sitetable");
+
+let nextStartIndex = submissions.length;
+
+const callback = () => {
+    submissions = document.querySelectorAll("div.sitetable div.thing.link")
+    console.log(submissions.length)
+    filterPage(nextStartIndex);
+    nextStartIndex = submissions.length;
+};
+
+const observerOptions = {
+    childList: true,
+    attributes: false,
+    subtree: false
+};
+
+const observer = new MutationObserver(callback)
+
+observer.observe(mainContentTable, observerOptions);
