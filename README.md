@@ -5,7 +5,6 @@ A chrome extension to filter by post type (link/self) and remove duplicates on R
 # Limitations
 
 1. Works only in old Reddit, on the desktop
-2. If used with RES, will only filter the first page of never-ending reddit
 
 # Installation
 
