@@ -45,15 +45,15 @@ const isPicture = (link) => {
 
 let submissions = document.querySelectorAll("div.sitetable div.thing.link");
 
+let links = new Set();
+let images = new Set();
+
 //we wrap the main logic in an async function so that we can await the resolution of each isPicture promise
 const filterPage = async (startIndex = 0) => {
 
 let notDuplicatesPage = !(window.location.pathname.split('/')[3] == 'duplicates')
 
 if (submissions[0] && notDuplicatesPage) {
-
-let links = new Set();
-let images = new Set();
 
 for (let i = startIndex; i < submissions.length; i++){
 
