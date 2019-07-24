@@ -106,7 +106,7 @@ let mainContentTable = document.querySelector("div.sitetable");
 
 let nextStartIndex = submissions.length;
 
-const callback = () => {
+const filterNewSubmissions = () => {
     submissions = document.querySelectorAll("div.sitetable div.thing.link")
     filterPage(nextStartIndex);
     nextStartIndex = submissions.length;
@@ -118,6 +118,6 @@ const observerOptions = {
     subtree: false
 };
 
-const observer = new MutationObserver(callback)
+const observer = new MutationObserver(filterNewSubmissions)
 
 observer.observe(mainContentTable, observerOptions);
