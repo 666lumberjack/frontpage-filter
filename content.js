@@ -69,7 +69,7 @@ for (let i = startIndex; i < submissions.length; i++){
         let contentURL = submissions[i].dataset.url;
         let linkIsImage = await isPicture(contentURL);
 
-        console.log(`Link: ${contentURL}\n Image Status: ${linkIsImage}`)
+        //console.log(`Link: ${contentURL}\n Image Status: ${linkIsImage}`)
         
         if (links.has(contentURL)) {
             submissions[i].style.display = 'none';
@@ -102,15 +102,12 @@ chrome.storage.local.get({'noDuplicates': false, 'displayMode': 'all'}, (result)
 });
 
 
-//temporary dom mod listener 
-
 let mainContentTable = document.querySelector("div.sitetable");
 
 let nextStartIndex = submissions.length;
 
 const callback = () => {
     submissions = document.querySelectorAll("div.sitetable div.thing.link")
-    console.log(submissions.length)
     filterPage(nextStartIndex);
     nextStartIndex = submissions.length;
 };
