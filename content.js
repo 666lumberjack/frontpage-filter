@@ -67,7 +67,7 @@ for (let i = startIndex; i < submissions.length; i++){
     } else if (settings.noDuplicates) {
 
         let contentURL = submissions[i].dataset.url;
-        let linkIsImage = await isPicture(contentURL);
+
 
         //console.log(`Link: ${contentURL}\n Image Status: ${linkIsImage}`)
         
@@ -75,6 +75,7 @@ for (let i = startIndex; i < submissions.length; i++){
             submissions[i].style.display = 'none';
         } else {
             links.add(contentURL);
+            let linkIsImage = await isPicture(contentURL);
 
             if (/*linkIsImage*/ false) { //image matching is disabled until encoding can be handled by a background script
 
