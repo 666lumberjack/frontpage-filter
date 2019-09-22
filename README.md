@@ -1,6 +1,6 @@
 # frontpage-filter
 
-A chrome extension to filter by post type (link/self) and remove duplicates on Reddit. Currently can detect and remove duplicate links and filter only link posts or text posts. Functionality to recognise the same image hosted in different places and hide all but the first instance is currently work-in-progress. 
+A chrome extension to filter by post type (link/self) and remove duplicate posts on Reddit. Currently can detect and remove duplicate links and filter only link posts or text posts. Functionality to recognise the same image hosted in different places and hide all but the first instance is currently work-in-progress. 
 
 # Motivation
 
@@ -13,5 +13,5 @@ I have found that when subscribed to (or viewing a multireddit containing) sever
 # Installation
 
 1. Clone the repository to your local machine
-2. Enable devloper mode in the Chrome extensions menu
+2. Enable developer mode in the Chrome extensions menu
 3. Click 'load unpacked extension' and select the folder containing this repository
